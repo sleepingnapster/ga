@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_rsAssignupdate" value="name:assign_id;datatype:int,name:a_sub_id;datatype:int,name:a_class_id;datatype:string,name:a_type;datatype:string,name:a_no;datatype:int,name:a_part;datatype:string,name:a_title;datatype:string,name:a_txt;datatype:blob,name:a_startdate;datatype:date,name:a_subdate;datatype:date" />
+</info>

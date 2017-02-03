@@ -1,0 +1,10 @@
+( ! ) Notice: Undefined index: in C:\wamp\www\GreenAssign1\Submissions\index.php on line 155
+Call Stack
+
+
+
+mysql_select_db($database_greenassign, $greenassign);
+$query_RsStudentSubmissions = sprintf("SELECT * FROM ( SELECT * FROM submissions WHERE subm_ass_id = %s ) AS subms RIGHT OUTER JOIN user_student ON ( subms.subm_email = user_student.email )  WHERE user_student.us_class_id=".$row_RsAssignDetails['sub_class_id']." ", GetSQLValueString($colname_RsAssignDetails, "int"));
+$RsStudentSubmissions = mysql_query($query_RsStudentSubmissions, $greenassign) or die(mysql_error());
+$row_RsStudentSubmissions = mysql_fetch_assoc($RsStudentSubmissions);
+$totalRows_RsStudentSubmissions = mysql_num_rows($RsStudentSubmissions);

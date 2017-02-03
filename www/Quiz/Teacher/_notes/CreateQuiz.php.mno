@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_RsQuizDetails" value="name:test_id;datatype:int,name:test_title;datatype:string,name:test_start;datatype:datetime,name:test_end;datatype:datetime,name:test_duration;datatype:time,name:test_timestamp;datatype:timestamp,name:test_by;datatype:string,name:test_type;datatype:string,name:test_randomizeOrder;datatype:int,name:test_markingScheme;datatype:int,name:test_editable;datatype:int" />
+	<infoitem key="UD_rsSubs" value="name:sub_id;datatype:int,name:sub_abbv;datatype:string,name:sub_class_id;datatype:int" />
+	<infoitem key="UD_RsQuestion" value="name:question_id;datatype:int,name:test_id_fk;datatype:int,name:question_no;datatype:int,name:question_question;datatype:string,name:question_type;datatype:int" />
+	<infoitem key="UD_RsOptions" value="name:option_id;datatype:int,name:test_id_fk;datatype:int,name:option_text;datatype:string,name:option_correct;datatype:int" />
+</info>

@@ -1,0 +1,112 @@
+data segment
+msg db 10,13,'Enter First Number b = $'
+msg1 db 10,13,'Enter Second Number c = $'
+msg2 db 10,13,'Enter Third Number d = $'
+msg3 db 10,13,'Result is a = $'
+data ends
+
+code segment
+
+assume cs:code,ds:data
+
+start: mov ax,data
+mov ds,ax
+
+mov ax,0000h
+
+mov dx,offset msg
+mov ah,09h
+int 21h
+
+mov ah,01h
+int 21h
+
+mov ch,al
+sub ch,30h
+ror ch,04h
+
+mov ah,01h
+int 21h
+
+mov cl,al
+sub cl,30h
+add cl,ch
+
+mov dx,offset msg1
+mov ah,09h
+int 21h
+
+mov ah,01h
+int 21h
+
+mov bh,al
+sub bh,30h
+ror bh,04h
+
+mov ah,01h
+int 21h
+
+mov bl,al
+sub bl,30h
+add bl,bh
+
+mov ah,09h
+mov dx,offset msg2
+int 21h
+
+mov ah,01h
+int 21h
+
+mov dh,al
+sub dh,30h
+ror dh,04h
+
+mov ah,01h
+int 21h
+
+mov dl,al
+sub dl,30h
+add dl,dh 
+
+mov al,cl
+mul bl
+AAM
+ror ah,04h
+add al,ah
+sub al,dl
+DAS
+mov bl,al
+
+mov ah,09h
+mov dx,offset msg3
+int 21h
+
+mov bh,bl
+and bh,0f0h
+ror bh,04
+add bh,30h
+mov dl,bh
+mov ah,02
+int 21h
+and bl,0fh
+add bl,30h
+mov dl,bl
+mov ah,02h
+int 21h
+
+
+
+mov ax,4c00h
+int 21h
+code ends
+end start
+
+output:
+
+D:\TASM\BIN>son.exe
+
+Enter First Number b = 05
+Enter Second Number c = 03
+Enter Third Number d = 02
+Result is a = 13
+

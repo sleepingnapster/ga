@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_rsId" value="name:gplus_id;datatype:string,name:id;datatype:int,name:name;datatype:string,name:rt;datatype:blob,name:verified;datatype:int" />
+	<infoitem key="UD_RsGid" value="name:gplus_id;datatype:string,name:id;datatype:int,name:name;datatype:string,name:rt;datatype:blob,name:verified;datatype:int" />
+</info>

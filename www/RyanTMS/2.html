@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Distance Matrix service</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+        width: 50%;
+      }
+#right-panel {
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+#right-panel select, #right-panel input {
+  font-size: 15px;
+}
+
+#right-panel select {
+  width: 100%;
+}
+
+#right-panel i {
+  font-size: 12px;
+}
+
+    </style>
+    <style>
+      #right-panel {
+        float: right;
+        width: 48%;
+        padding-left: 2%;
+      }
+      #output {
+        font-size: 11px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="right-panel">
+      <div id="inputs">
+        <pre>
+var origin1 = {lat: 19.185107, lng: 72.829951};
+
+ var destinationA = 'Vibgyor High Motilal Nagar 1, Srirang Sabde Marg, Off. Link Road, Goregaon West, Mumbai, Maharashtra, India';
+  var destinationB = 'Charkop Gaon, Kandivali West, Mumbai, Maharashtra, India';
+  var destinationC = 'Beverly Park, Mira Road East, Mira Bhayandar, Maharashtra, India';
+  var destinationD = 'Bhayander Station (E)';
+  var destinationE = 'Shimpoli, Borivali West, Mumbai, Maharashtra, India';
+  var destinationF = 'St. Francis Institute Of Technology, Mandapeshwar, Borivali, Mumbai, Maharashtra 400103, India';
+  var destinationG = 'Borivali, Mumbai, Maharashtra, India';
+  var destinationH = 'Silver Park, Mira Road East, Mira Bhayandar, Maharashtra 401107, India';
+  var destinationI = 'Alfa Building, Apna Bazar Rd, Azad Nagar, Andheri West, Mumbai, Maharashtra 400102, India';
+  var destinationJ = 'Bisleri International Pvt Ltd, Guru Hargovindji Road, Andheri East, Mumbai, Maharashtra 400099, India';
+        </pre>
+      </div>
+      <div>
+        <strong>Results</strong>
+      </div>
+      <div id="output"></div>
+    </div>
+    <div id="map"></div>
+    <script>
+function initMap() {
+  var bounds = new google.maps.LatLngBounds;
+  var markersArray = [];
+
+  var origin1 = '16, Mindspace, Malad West, Mumbai, Maharashtra 400064';
+  /*
+var origin2 = {lat: 19.237025, lng: 72.844551};
+19.185107, 72.829951
+19.181513, 72.855458
+19.210186, 72.818457
+19.223653, 72.843151
+19.310201, 72.853192
+19.223329, 72.842893
+19.243965, 72.855881
+19.237025, 72.844551
+19.280856, 72.873779
+19.130252, 72.835100
+*/
+  
+  
+  //var destinationA = 'Stockholm, Sweden';
+  var destinationA = 'Vibgyor High Motilal Nagar 1, Srirang Sabde Marg, Off. Link Road, Goregaon West, Mumbai, Maharashtra, India';
+  var destinationB = 'Charkop Gaon, Kandivali West, Mumbai, Maharashtra, India';
+  var destinationC = 'Beverly Park, Mira Road East, Mira Bhayandar, Maharashtra, India';
+  var destinationD = 'Bhayander Station (E)';
+  var destinationE = 'Shimpoli, Borivali West, Mumbai, Maharashtra, India';
+  var destinationF = 'St. Francis Institute Of Technology, Mandapeshwar, Borivali, Mumbai, Maharashtra 400103, India';
+  var destinationG = 'Borivali, Mumbai, Maharashtra, India';
+  var destinationH = 'Silver Park, Mira Road East, Mira Bhayandar, Maharashtra 401107, India';
+  var destinationI = 'Alfa Building, Apna Bazar Rd, Azad Nagar, Andheri West, Mumbai, Maharashtra 400102, India';
+  var destinationJ = 'Bisleri International Pvt Ltd, Guru Hargovindji Road, Andheri East, Mumbai, Maharashtra 400099, India';
+
+  var destinationIcon = 'https://chart.googleapis.com/chart?' +
+      'chst=d_map_pin_letter&chld=D|FF0000|000000';
+  var originIcon = 'https://chart.googleapis.com/chart?' +
+      'chst=d_map_pin_letter&chld=O|FFFF00|000000';
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 19.185107, lng: 72.829951},
+    zoom: 10
+  });
+  var geocoder = new google.maps.Geocoder;
+
+  var service = new google.maps.DistanceMatrixService;
+  service.getDistanceMatrix({
+    origins: [origin1],
+    destinations: [destinationA, destinationB, destinationC, destinationD, destinationE, destinationF, destinationG, destinationH, destinationI, destinationJ],
+    travelMode: google.maps.TravelMode.DRIVING,
+    unitSystem: google.maps.UnitSystem.METRIC,
+    avoidHighways: false,
+    avoidTolls: false
+  }, function(response, status) {
+    if (status !== google.maps.DistanceMatrixStatus.OK) {
+      alert('Error was: ' + status);
+    } else {
+      var originList = response.originAddresses;
+      var destinationList = response.destinationAddresses;
+      var outputDiv = document.getElementById('output');
+      outputDiv.innerHTML = '';
+      deleteMarkers(markersArray);
+
+      var showGeocodedAddressOnMap = function(asDestination) {
+        var icon = asDestination ? destinationIcon : originIcon;
+        return function(results, status) {
+          if (status === google.maps.GeocoderStatus.OK) {
+            map.fitBounds(bounds.extend(results[0].geometry.location));
+            markersArray.push(new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location,
+              icon: icon
+            }));
+          } else {
+            alert('Geocode was not successful due to: ' + status);
+          }
+        };
+      };
+
+      for (var i = 0; i < originList.length; i++) {
+        var results = response.rows[i].elements;
+        geocoder.geocode({'address': originList[i]},
+            showGeocodedAddressOnMap(false));
+        for (var j = 0; j < results.length; j++) {
+          geocoder.geocode({'address': destinationList[j]},
+              showGeocodedAddressOnMap(true));
+          outputDiv.innerHTML += /*originList[i]*/ ' ' + destinationList[j] +
+              ': <br>' + results[j].distance.text + ' in ' +
+              results[j].duration.text + '<br>';
+        }
+      }
+    }
+  });
+}
+
+function deleteMarkers(markersArray) {
+  for (var i = 0; i < markersArray.length; i++) {
+    markersArray[i].setMap(null);
+  }
+  markersArray = [];
+}
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCF90pnPBqI8W1pAQseaBkFatBJUjq8vNs&signed_in=true&callback=initMap"
+        async defer></script>
+  </body>
+</html>

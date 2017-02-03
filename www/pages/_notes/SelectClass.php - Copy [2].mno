@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_rsClassNInsti" value="name:class_id;datatype:int,name:class_insti_id;datatype:int,name:class_compactname;datatype:string,name:class_capacity;datatype:int,name:class_readablename;datatype:string,name:insti_id;datatype:int,name:insti_abv;datatype:string,name:insti_fullname;datatype:string,name:insti_logo;datatype:string,name:insti_about;datatype:blob" />
+</info>

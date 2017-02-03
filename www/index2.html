@@ -1,0 +1,126 @@
+<html>
+<head>
+  <title>{{ APPLICATION_NAME }}</title>
+  <script type="text/javascript">
+  (function() {
+    var po = document.createElement('script');
+    po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://plus.google.com/js/client:plusone.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+  })();
+  </script>
+  <!-- JavaScript specific to this application that is not related to API
+     calls -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" ></script>
+</head>
+<body>
+  <div id="gConnect">
+    <button class="g-signin"
+        data-scope="https://www.googleapis.com/auth/plus.login email"
+        data-requestvisibleactions="http://schemas.google.com/AddActivity"
+        data-clientId="{{ CLIENT_ID }}"
+        data-accesstype="offline"
+        data-callback="onSignInCallback"
+        data-theme="dark"
+        data-cookiepolicy="single_host_origin">
+    </button>
+  </div>
+  <div id="authOps"><div id="errors"><p></p></div></div>
+</body>
+<script type="text/javascript">
+var helper = (function() {
+  var authResult = undefined;
+  var gid=undefined;
+  return {
+    /**
+     * Hides the sign-in button and connects the server-side app after
+     * the user successfully signs in.
+     *
+     * @param {Object} authResult An Object which contains the access token and
+     *   other authentication information.
+     */
+    onSignInCallback: function(authResult) {
+     
+      if (authResult['access_token']) {
+        // The user is signed in
+        this.authResult = authResult;
+		//get id, displayName, image.url
+		gapi.client.load('plus','v1',this.getUserDetails);
+		//
+      } else if (authResult['error']) {
+        // There was an error, which means the user is not signed in.
+        // As an example, you can troubleshoot by writing to the console:
+        console.log('There was an error: ' + authResult['error']);
+        $('#authResult').append('Logged out');
+        $('#authOps').hide('slow');
+        $('#gConnect').show();
+      }
+      console.log('authResult', authResult);
+    },
+   
+	/**
+	* get gplus id and email
+	*/
+	getUserDetails: function() {
+      var request = gapi.client.plus.people.get( {'userId' : 'me'} );
+      
+	  request.execute( function(profile) {
+         console.log('profile', profile);
+          if (profile.error) {
+            console.log('profile error', profile.error);
+            return;
+          }
+		  gid=profile.id;
+		  var gId= profile.id;
+		  var gName= profile.displayName;
+		  var gImageUrl= profile.image.url;
+		  var gmailAddress=profile.emails[0].value;
+        helper.connectServer(gId,gName,gImageUrl,gmailAddress);
+        });
+		
+    },
+    
+	
+    /**
+     * Calls the server endpoint to connect the app for the user. The client
+     * sends the one-time authorization code to the server and the server
+     * exchanges the code for its own tokens to use for offline API access.
+     * For more information, see:
+     *   https://developers.google.com/+/web/signin/server-side-flow
+     */
+    connectServer: function(gid,gname,gimageurl,gmailAddress) {
+      console.log(this.authResult.code);
+      $.ajax({
+        type: 'POST',
+        url: window.location.href + 'index.php/connect?state={{ STATE }}&gplus_id='+gid+'&displayName='+gname+'&gmailAddress='+gmailAddress+'&gimageurl=x',
+        contentType: 'application/octet-stream; charset=utf-8',
+        success: function(result) {
+          console.log('connectServer',result);
+          //$('#errors').append(result);
+		  if(result=='Loggedin'){}
+		  else{
+		  window.location=result;
+		  }
+        },
+        processData: false,
+        data: this.authResult.code
+      });
+    },
+    
+  };
+})();
+
+/**
+ *
+ * Calls the helper method that handles the authentication flow.
+ *
+ * @param {Object} authResult An Object which contains the access token and
+ *   other authentication information.
+ *
+ */
+function onSignInCallback(authResult) {
+  helper.onSignInCallback(authResult);
+}
+</script>
+</html>

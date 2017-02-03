@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_rsSubs" value="name:sub_id;datatype:int,name:sub_abbv;datatype:string,name:sub_class;datatype:string" />
+	<infoitem key="UD_rsTeacher" value="name:t_id;datatype:int,name:t_title;datatype:string,name:t_fname;datatype:string,name:t_lname;datatype:string,name:t_verified;datatype:int" />
+</info>

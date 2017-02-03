@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_rsClassSubids" value="name:sub_id;datatype:int,name:sub_by_tid;datatype:int,name:sub_name;datatype:string,name:sub_abbv;datatype:string" />
+	<infoitem key="UD_rsAllEbooks" value="name:eb_id;datatype:int,name:eb_filename;datatype:string,name:eb_report;datatype:int,name:eb_verified;datatype:int,name:eb_uploadedby;datatype:string,name:eb_subid;datatype:int" />
+	<infoitem key="UD_rsSubidEbooks" value="name:eb_id;datatype:int,name:eb_filename;datatype:string,name:eb_report;datatype:int,name:eb_verified;datatype:int,name:eb_uploadedby;datatype:string" />
+</info>

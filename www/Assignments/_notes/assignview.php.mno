@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_rsAssign" value="name:assign_id;datatype:int,name:a_sub_id;datatype:int,name:a_batch;datatype:string,name:a_type;datatype:string,name:a_no;datatype:int,name:a_part;datatype:string,name:a_marks;datatype:int,name:a_title;datatype:string,name:a_txt;datatype:blob,name:a_startdate;datatype:date,name:a_subdate;datatype:date" />
+	<infoitem key="UD_RsAlreadySubmitted" value="name:subm_id;datatype:int,name:subm_ass_id;datatype:int,name:subm_email;datatype:string,name:subm_timestamp;datatype:timestamp,name:subm_file;datatype:string,name:subm_comment;datatype:string,name:subm_marks;datatype:int,name:subm_feedback;datatype:blob,name:subm_status;datatype:string,name:subm_checkedon;datatype:timestamp" />
+	<infoitem key="UD_RsSubdetails" value="name:sub_id;datatype:int,name:sub_class_id;datatype:int,name:sub_name;datatype:string,name:sub_abbv;datatype:string" />
+</info>

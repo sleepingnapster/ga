@@ -1,0 +1,6 @@
+[25-Aug-2015 02:06:44 America/New_York] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, null given in /home/hostrabb/public_html/greenassign.com/Quiz/CreateQuiz.php on line 157
+[25-Aug-2015 02:06:44 America/New_York] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, null given in /home/hostrabb/public_html/greenassign.com/Quiz/CreateQuiz.php on line 158
+[25-Aug-2015 02:06:44 America/New_York] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, null given in /home/hostrabb/public_html/greenassign.com/Quiz/CreateQuiz.php on line 159
+[25-Aug-2015 02:09:44 America/New_York] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, null given in /home/hostrabb/public_html/greenassign.com/Quiz/CreateQuiz.php on line 157
+[25-Aug-2015 02:09:44 America/New_York] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, null given in /home/hostrabb/public_html/greenassign.com/Quiz/CreateQuiz.php on line 158
+[25-Aug-2015 02:09:44 America/New_York] PHP Warning:  mysql_free_result() expects parameter 1 to be resource, null given in /home/hostrabb/public_html/greenassign.com/Quiz/CreateQuiz.php on line 159

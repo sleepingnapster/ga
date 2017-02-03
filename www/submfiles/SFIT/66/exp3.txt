@@ -1,0 +1,29 @@
+Roll No:-33
+
+
+echo "Enter A Number :"
+read n
+N=$n
+rev=0
+while [ $n -gt 0 ]
+do
+rem=`expr $n % 10`
+rev=`expr $rev \* 10 + $rem`
+n=`expr $n / 10`
+done
+echo "Reverse of $N is $rev"
+
+
+
+
+
+output:
+Enter A Number :
+236
+Reverse of 236 is 632
+[student@PC-5 ~]$ sh exp3
+Enter A Number :
+120
+Reverse of 120 is 21
+
+

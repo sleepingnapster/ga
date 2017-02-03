@@ -1,0 +1,5 @@
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^www\.greenassign\.com$ [NC]
+RewriteRule ^(.*)$ http://greenassign.com/$1 [R=301,L]
+

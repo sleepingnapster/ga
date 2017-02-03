@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{{ APPLICATION_NAME }}</title>
+  <script type="text/javascript">
+  (function() {
+    var po = document.createElement('script');
+    po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://plus.google.com/js/client:plusone.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(po, s);
+  })();
+  </script>
+  <!-- JavaScript specific to this application that is not related to API
+     calls -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" ></script>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/landing-page.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+       <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+       
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+               <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav" href="">GreenAssign</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                    <li>
+                        <a href="#services">Services</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+           </div>
+        <!-- /.container -->
+       </nav>
+     
+
+
+    <!-- Header -->
+    <a name="about"></a>
+    <div class="intro-header">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                    	
+                        <h1><img src="img/mainlogo0.png" width="100%"></h1>
+                        <h3>Communicate | Learn | Stay Organised</h3>
+                        <hr class="intro-divider">
+                        <ul class="list-inline intro-social-buttons">
+                        
+                            <li>
+                            <div id="gConnect">
+                            <button class="g-signin"
+                                data-scope="https://www.googleapis.com/auth/plus.login email"
+                                data-requestvisibleactions="http://schemas.google.com/AddActivity"
+                                data-clientId="{{ CLIENT_ID }}"
+                                data-accesstype="offline"
+                                data-callback="onSignInCallback"
+                                data-theme="dark"
+                                data-height="tall"
+                                data-width="wide"
+                                data-cookiepolicy="http://greenassign.com">
+                            </button>
+                          </div>
+                            </li>
+                            <li>
+                            <div style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseine; display: inline-block; width: 248px; height: 48px; position: relative; background: transparent;">
+                                <a href="pages/SelectClass.php" style="opacity: 1; z-index: 10000; left: 0px; top: 0px; position: absolute; cursor: pointer; outline: 0px; width: 248px; height: 43px;" class="btn btn-default btn-lg"><span class="network-name">Sign in as GUEST</span></a></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.intro-header -->
+
+    <!-- Page Content -->
+
+	<a  name="services"></a>
+    <div class="content-section-a">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">What is GreenAssign?</h2>
+                    <p class="lead">GreenAssign is a web service for colleges & schools.
+<br>We provide:
+<ol><li><b>Communication</b> between students and staff</li>
+<li>Study <b>Resources</b></li>
+<li>Online <b>Assignments</b></li></ol></p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="img/ipad.png" alt="">
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-a -->
+    <!-- /.content-section-b -->
+    <!-- /.content-section-a -->
+
+	<a  name="contact"></a>
+    <div class="banner">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Contact Us</h2>
+                    
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-lg-12">
+                    <form action="mailercontactus.php" name="sentMessage" id="contactForm" method="post" novalidate>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input style="height:61px" type="text" class="form-control" placeholder="Your Name *" id="name" name="nameyo" required data-validation-required-message="Please enter your name.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input style="height:61px" type="email" class="form-control" placeholder="Your Email *" id="email" name="emailyo" required data-validation-required-message="Please enter your email address.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input style="height:61px" type="tel" class="form-control" placeholder="Your Phone *" id="phone" name="phoneyo" required data-validation-required-message="Please enter your phone number.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <textarea rows="10" required class="form-control" id="message" name="messageyo" placeholder="Your Message *" data-validation-required-message="Please enter a message."></textarea>
+                                    <p class="help-block text-danger"></p>
+                              </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-lg-12 text-center">
+                                <div id="success"></div>
+                                <button type="submit" class="btn btn-default btn-lg">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.banner -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#services">Services</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted small">Copyright &copy; GreenAssign 2015. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+<div id="authOps"><div id="errors"><p></p></div></div>
+</body>
+<script type="text/javascript">
+var helper = (function() {
+  var authResult = undefined;
+  var gid=undefined;
+  return {
+    /**
+     * Hides the sign-in button and connects the server-side app after
+     * the user successfully signs in.
+     *
+     * @param {Object} authResult An Object which contains the access token and
+     *   other authentication information.
+     */
+    onSignInCallback: function(authResult) {
+     
+      if (authResult['access_token']) {
+        // The user is signed in
+        this.authResult = authResult;
+		//get id, displayName, image.url
+		gapi.client.load('plus','v1',this.getUserDetails);
+		//
+      } else if (authResult['error']) {
+        // There was an error, which means the user is not signed in.
+        // As an example, you can troubleshoot by writing to the console:
+        console.log('There was an error: ' + authResult['error']);
+        $('#authResult').append('Logged out');
+        $('#authOps').hide('slow');
+        $('#gConnect').show();
+      }
+      console.log('authResult', authResult);
+    },
+   
+	/**
+	* get gplus id and email
+	*/
+	getUserDetails: function() {
+      var request = gapi.client.plus.people.get( {'userId' : 'me'} );
+      
+	  request.execute( function(profile) {
+         console.log('profile', profile);
+          if (profile.error) {
+            console.log('profile error', profile.error);
+            return;
+          }
+		  gid=profile.id;
+		  var gId= profile.id;
+		  var gName= profile.displayName;
+		  var gImageUrl= profile.image.url;
+		  var gmailAddress=profile.emails[0].value;
+        helper.connectServer(gId,gName,gImageUrl,gmailAddress);
+        });
+		
+    },
+    
+	
+    /**
+     * Calls the server endpoint to connect the app for the user. The client
+     * sends the one-time authorization code to the server and the server
+     * exchanges the code for its own tokens to use for offline API access.
+     * For more information, see:
+     *   https://developers.google.com/+/web/signin/server-side-flow
+     */
+    connectServer: function(gid,gname,gimageurl,gmailAddress) {
+      console.log(this.authResult.code);
+	  $.ajax({
+        type: 'POST',
+        url: 'http://greenassign.com/index.php/connect?state={{ STATE }}&gplus_id='+gid+'&displayName='+gname+'&gmailAddress='+gmailAddress+'&gimageurl='+gimageurl,
+        contentType: 'application/octet-stream; charset=utf-8',
+        success: function(result) {
+          console.log('connectServer',result);
+          //$('#errors').append(result);
+		  if(result=='Loggedin'){}
+		  else{
+		  window.location=result;
+		  }
+        },
+        processData: false,
+        data: this.authResult.code
+      });
+    },
+    
+  };
+})();
+
+/**
+ *
+ * Calls the helper method that handles the authentication flow.
+ *
+ * @param {Object} authResult An Object which contains the access token and
+ *   other authentication information.
+ *
+ */
+function onSignInCallback(authResult) {
+  helper.onSignInCallback(authResult);
+}
+</script>
+
+</html>

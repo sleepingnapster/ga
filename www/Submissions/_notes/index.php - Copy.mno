@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_rsAssigns" value="name:assign_id;datatype:int,name:a_sub_id;datatype:int,name:a_type;datatype:string,name:a_no;datatype:int,name:a_batch;datatype:string,name:a_title;datatype:string,name:a_startdate;datatype:date,name:a_subdate;datatype:date" />
+	<infoitem key="UD_rsSubs" value="name:sub_id;datatype:int,name:sub_abbv;datatype:string,name:sub_class_id;datatype:int" />
+</info>

@@ -1,0 +1,136 @@
+//Name      :   Ryan Augustine
+//Class     :   SE CMPN B
+//Roll no.  :   01
+//Batch     :   01
+
+//          Least Recently Used(LRU) Algorithm
+
+package Exp9;
+
+import java.util.Scanner;
+
+public class LRU
+{
+    public static void main(String[] args)
+    {
+        int pages,frames,flagnofault=0,ptr=0,wgtptr=0,nofault=0;
+        
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter no of Pages : ");
+        pages=sc.nextInt();
+        System.out.println("Enter no of Frames : ");
+        frames=sc.nextInt();
+        
+        
+        //initialising weights
+        int[] wgt=new int[frames];
+        for(int i=0;i<frames;i++) 
+        {
+            wgt[i]=i;
+        }
+        
+        
+        //initialising Page Sequence
+        Page[] Pg = new Page[pages];
+        for(int i=0;i<pages;i++)
+        {
+            System.out.print("Page "+i+" : ");
+            Pg[i] = new Page();
+        }
+        
+        //initialising Frames
+        Frame[] Fr;
+        Fr = new Frame[pages];
+        for(int i=0;i<pages;i++)
+        {
+            Fr[i] = new Frame(frames);
+        }
+
+        //Entering pages in frames (Main-Loop)
+        for(int i=0;i<pages;i++)
+        {
+            //copy earlier frame into new frame
+            for(int j=0;j<frames;j++)
+            {
+                try{
+                Fr[i].pno[j]=Fr[i-1].pno[j];
+                }catch(Exception e){}
+            }
+            
+            
+            //check if page already exists
+            //if yes flag=1
+            //find pointer to weight 0
+            for(int j=0;j<frames;j++)
+            {
+                //Find where same pageno already exists
+                try{
+                if(Pg[i].pno==Fr[i].pno[j])
+                {
+                    flagnofault=1;
+                    nofault++;
+                    ptr=j;
+                }
+                }catch(Exception e){}
+                
+                //Find where weight=0
+                if(wgt[j]==0)
+                {
+                    wgtptr=j;
+                }
+            }
+            
+            if(flagnofault==1)
+            {
+                //refresh weights
+                for(int j=0;j<frames;j++)
+                {
+                    if(wgt[ptr]<wgt[j])
+                    {
+                        wgt[j]--;
+                    }
+                }
+                wgt[ptr]=frames-1;
+                flagnofault=0;
+                //weights refreshed
+            }
+            else if(flagnofault==0)
+            {
+                //decrement other weights and refresh currrent
+                wgt[wgtptr]=frames;
+                for(int j=0;j<frames;j++)
+                {
+                    wgt[j]--;
+                }
+                
+                Fr[i].pno[wgtptr]=Pg[i].pno;
+            }
+
+        }//End of main For Loop
+        
+        
+        
+        //Display Results
+        System.out.println("\nPage Faults = "+(pages-nofault));
+        System.out.println("\nRepresentation of Page Sequence and Frames>");
+        
+        //display Page Sequence
+        for(int i=0;i<pages;i++)
+        {
+            System.out.print(Pg[i].pno+"  ");
+        }
+        System.out.println("\n");
+        
+        //display frames
+        for(int i=0;i<frames;i++)
+        {
+            for(int j=0;j<pages;j++)
+            {
+                if(Fr[j].pno[i]==null)System.out.print("-  ");
+                else System.out.print(Fr[j].pno[i]+"  ");
+            }
+            System.out.println();
+        }
+    }
+}

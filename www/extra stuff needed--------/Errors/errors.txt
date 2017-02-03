@@ -1,0 +1,3 @@
+
+www/index.php
+Fatal error: Uncaught exception 'Google_Auth_Exception' with message 'The OAuth 2.0 access token has expired, and a refresh token is not available. Refresh tokens are not returned for responses that were auto-approved.' in /var/www/html/libraries/Google/Auth/OAuth2.php:248 Stack trace: #0 /var/www/html/libraries/Google/Service/Resource.php(214): Google_Auth_OAuth2->sign(Object(Google_Http_Request)) #1 /var/www/html/libraries/Google/Service/Oauth2.php(175): Google_Service_Resource->call('get', Array, 'Google_Service_...') #2 /var/www/html/index.php(114): Google_Service_Oauth2_Userinfo_Resource->get() #3 {main} thrown in /var/www/html/libraries/Google/Auth/OAuth2.php on line 248

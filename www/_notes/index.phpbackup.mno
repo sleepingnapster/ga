@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_RsTeacher" value="name:ut_id;datatype:int,name:email;datatype:string,name:ut_displayname;datatype:string,name:ut_description;datatype:blob,name:ut_tid;datatype:int,name:t_id;datatype:int" />
+	<infoitem key="UD_Recordset1" value="name:ut_id;datatype:int,name:email;datatype:string,name:ut_displayname;datatype:string,name:ut_description;datatype:blob,name:ut_tid;datatype:int,name:t_id;datatype:int" />
+</info>

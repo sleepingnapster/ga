@@ -1,0 +1,30 @@
+
+SEO for local visibility
+
+Google Analytics
+
+E-mail marketing
+let users subscribe and unscribe to this service
+used for spreading cupons,sales news,new products,etc
+
+Building 
+
+Cloud Service APIs
+Allows u to customise ur site as per the user.
+How?...Facebook or Google+ apis provide user info  that can be made to tailor the site 
+(Like gender and age can be used to show custom ads on an e-commerce site)
+Access to 3rd party data using their apis.
+
+Working with data on the web xml,json,yaml and csv.
+
+User Authentication
+Bla bla bla
+
+Drag and drop
+
+Exporting data to Files
+exports database reterived data(including pics) to popular file types like docx,xlsx,rtf,cvn,etc.
+
+Fully functional e-commerce website
+
+Social Media Marketing with Facebook, Google+, Instagram and Twitter.
